@@ -24,5 +24,13 @@ namespace MusicOrganizer.Models
     {
       _instances.Clear();
     }
+    public static Artist Find(int searchId)
+    {
+      return _instances[searchId - 1];
+    }
+    public void AddRecord(Record record)
+    {
+      Records.Add(record);
+    }
   }
 }

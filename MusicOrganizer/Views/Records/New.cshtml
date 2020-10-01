@@ -1,12 +1,12 @@
 @{
   Layout = "_Layout";
 }
-<h1>Add a new Record</h1>
+<h1>Add a new Record to @Model.Name</h1>
 
-<form action="/records" method="post">
-  <label for="title">Title of Record</label>
-  <input id="title" name="title" type="text">
+<form action="/artists/@Model.Id/records" method="post">
+  <input id="artistId" name="artistId" type="hidden" value="@Model.Id">
+  <label for="recordTitle">Title of Record</label>
+  <input id="recordTitle" name="recordTitle" type="text">
   <button type='submit'>Add Item</button>
 </form>
 
-<a href='/records'>View all categories</a>

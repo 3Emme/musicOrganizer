@@ -61,5 +61,37 @@ namespace MusicOrganizer.Models
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void Find_ReturnsCorrectArtist_Artist()
+    {
+      //Arrange
+      string name01 = "Beck";
+      string name02 = "Meute";
+      Artist newArtist1 = new Artist(name01);
+      Artist newArtist2 = new Artist(name02);
+
+      //Act
+      Artist result = Artist.Find(2);
+
+      //Assert
+      Assert.AreEqual(newArtist2, result);
+    }
+    [TestMethod]
+    public void AddRecord_AssociatesRecordWithArtist_RecordList()
+    {
+      //Arrange
+      string title = "Nite Creatures";
+      Record newRecord = new Record(title);
+      List<Record> newList = new List<Record> { newRecord };
+      string name = "Joe Wong";
+      Artist newArtist = new Artist(name);
+      newArtist.AddRecord(newRecord);
+
+      //Act
+      List<Record> result = newArtist.Records;
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
