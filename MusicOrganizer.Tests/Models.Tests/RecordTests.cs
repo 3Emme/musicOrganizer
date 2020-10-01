@@ -34,7 +34,7 @@ namespace MusicOrganizer.Tests
     public void SetTitle_SetTitle_String()
     {
       //Arrange
-      string title = "Walk the dog.";
+      string title = "The Earth is Not a Cold Dead Place.";
       Record newRecord = new Record(title);
 
       //Act
@@ -60,6 +60,31 @@ namespace MusicOrganizer.Tests
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
+    }
+    
+    [TestMethod]
+    public void GetId_RecordInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      string title = "The Earth is Not a Cold Dead Place";
+      Record newRecord = new Record(title);
+
+      int result = newRecord.Id;
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectRecord_Record () {
+      //Arrange
+      string title01 = "The Earth is Not a Cold Dead Place";
+      string title02 = "Wash the dishes";
+      Record newRecord1 = new Record (title01);
+      Record newRecord2 = new Record (title02);
+
+      //Act
+        Record result = Record.Find(2);
+
+      //Assert
+      Assert.AreEqual (newRecord2, result);
     }
 
   }

@@ -18,6 +18,15 @@ namespace MusicOrganizer.Models
     {
       _instances.Clear();
     }
+    public static List<Record> GetAll()
+    {
+      return _instances;
+    }
+
+    public static Record Find(int searchId)
+    {
+      return _instances[searchId - 1];
+    }
 
   }
 }
